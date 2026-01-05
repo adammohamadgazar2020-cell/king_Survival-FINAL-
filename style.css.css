@@ -1,0 +1,132 @@
+:root {
+    --main-bg: #050608;
+    --card-bg: #0e1013;
+    --gold: #F1C40F;
+    --text-gray: #a0a6b1;
+    --discord: #5865F2;
+    --color-vip: #2ECC71; 
+    --color-vip-p: #A2D149;
+    --color-mvp: #3498DB; 
+    --color-mvp-p: #2980B9;
+    --color-king-p-grad: linear-gradient(45deg, #F1C40F, #D35400);
+    
+    /* إضافات الظلال القوية */
+    --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.8), 0 10px 20px rgba(0, 0, 0, 0.5);
+    --shadow-gold: 0 0 30px rgba(241, 196, 15, 0.25);
+    --inner-light: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; list-style: none; scroll-behavior: smooth; }
+body { background-color: var(--main-bg); color: #fff; direction: rtl; text-align: right; overflow-x: hidden; }
+
+/* Background Glow */
+.bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1a1c3d 0%, transparent 50%); opacity: 0.15; pointer-events: none; z-index: -1; }
+
+/* Navbar - إضافة شادو عميق أسفل الناف بار */
+.main-nav { 
+    position: fixed; top: 0; width: 100%; height: 90px; 
+    background: rgba(5,6,8,0.9); backdrop-filter: blur(20px); 
+    z-index: 1000; display: flex; align-items: center; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+.nav-container { width: 95%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo-text { font-size: 26px; font-weight: 900; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.gold-glow { color: var(--gold); text-shadow: 0 0 20px rgba(241,196,15,0.6), 0 0 40px rgba(241,196,15,0.2); }
+
+/* Hero Section */
+.hero { height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #0d0f1a 0%, #050608 100%); }
+.glow-title { 
+    font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; color: var(--gold); 
+    text-shadow: 0 10px 40px rgba(241, 196, 15, 0.4), 0 0 100px rgba(241, 196, 15, 0.1); 
+    margin-bottom: 25px; 
+}
+
+/* Buttons - إضافة تأثيرات Glow عند الوقوف */
+.btn-hero { 
+    padding: 16px 45px; border-radius: 15px; font-weight: 800; font-size: 18px; 
+    display: flex; align-items: center; gap: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    cursor: pointer; border: 2px solid; 
+}
+.btn-discord { 
+    background: #5865F2; border-color: #5865F2; color: #fff; 
+    box-shadow: 0 15px 35px rgba(88, 101, 242, 0.3); 
+}
+.btn-discord:hover { box-shadow: 0 20px 50px rgba(88, 101, 242, 0.5); transform: translateY(-8px) scale(1.05); }
+
+.btn-gold { 
+    border-color: var(--gold); color: var(--gold); background: transparent; 
+    box-shadow: 0 15px 35px rgba(241, 196, 15, 0.1); 
+}
+.btn-gold:hover { box-shadow: 0 20px 50px rgba(241, 196, 15, 0.3); transform: translateY(-8px) scale(1.05); background: var(--gold); color: #000; }
+
+/* Cards - شادو قوي جداً وتأثير عمق */
+.rank-mini-card, .detail-card, .rule-card, .renew-box {
+    box-shadow: var(--shadow-deep), var(--inner-light);
+    transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.rank-mini-card:hover, .detail-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: rgba(255,255,255,0.2);
+}
+
+/* تخصيص التوهج الملون حسب الرتبة عند الـ Hover */
+.r-vip:hover { box-shadow: 0 30px 70px rgba(46, 204, 113, 0.25), var(--inner-light); }
+.r-vip-p:hover { box-shadow: 0 30px 70px rgba(162, 209, 73, 0.25), var(--inner-light); }
+.r-mvp:hover { box-shadow: 0 30px 70px rgba(52, 152, 219, 0.25), var(--inner-light); }
+.r-king-p:hover { box-shadow: 0 30px 70px rgba(211, 84, 0, 0.3), var(--inner-light); }
+
+/* نصوص الرتب داخل الكروت */
+.rank-mini-card h4 { text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.rank-mini-card p { text-shadow: 0 0 10px rgba(241,196,15,0.3); }
+
+/* الأزرار داخل الكروت */
+.card-btn { 
+    border: none; border-radius: 15px; color: #fff; font-weight: 900; 
+    cursor: pointer; font-size: 17px; transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.card-btn:hover { filter: brightness(1.2); transform: scale(1.02); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
+
+/* Renew & Rules */
+.renew-box { 
+    padding: 30px 50px; border: 1px solid rgba(255,255,255,0.08); 
+    background: linear-gradient(145deg, #0e1013, #15181c);
+}
+.rule-card { 
+    border-right: 6px solid var(--gold); 
+    box-shadow: -10px 15px 40px rgba(0,0,0,0.5);
+}
+.rule-card:hover { transform: translateX(-10px); box-shadow: -20px 25px 60px rgba(0,0,0,0.7); }
+
+/* Modal - شادو المودال الضخم */
+.modal-overlay { backdrop-filter: blur(15px); }
+.modal-content { 
+    background: #15181c; padding: 45px; border-radius: 35px; 
+    box-shadow: 0 50px 120px rgba(0,0,0,1), 0 0 30px rgba(255,255,255,0.02); 
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.modal-input { 
+    background: #08090b; border: 1px solid #222; 
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5); 
+    transition: 0.3s;
+}
+.modal-input:focus { border-color: var(--gold); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 0 15px rgba(241,196,15,0.2); }
+
+.confirm-btn { 
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3); 
+    transition: 0.4s;
+}
+.confirm-btn:hover { box-shadow: 0 15px 35px rgba(46, 204, 113, 0.5); transform: translateY(-3px); }
+
+/* Footer */
+footer { 
+    background: #030405; 
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5); 
+}
+
+/* المسطرة والخطوط الفاصلة */
+.section-title span { 
+    text-shadow: 0 0 20px rgba(241,196,15,0.4);
+}
